@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>36·37쪽 QR | 한 번 더</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+  <style>
+    :root{
+      --ink:#17324d; --muted:#627487; --line:#d7e4ea;
+      --accent:#4fc3d8; --accent-soft:#e8f8fb;
+      --paper:#fff; --bg:#f4f8fa; --answer:#f1faf5;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,#eef7fa 0,#f8fbfc 100%);
+      line-height:1.75;
+    }
+    .page{max-width:980px;margin:0 auto;padding:24px 16px 56px}
+    .hero,.card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:0 8px 28px rgba(35,75,101,.08);
+    }
+    .hero{padding:24px 26px;position:relative;overflow:hidden}
+    .hero:before{
+      content:"";position:absolute;left:0;top:0;width:100%;height:6px;background:var(--accent)
+    }
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+    .chip{
+      display:inline-block;background:var(--accent-soft);border-radius:999px;
+      padding:4px 10px;font-size:13px;font-weight:800
+    }
+    h1{margin:4px 0 6px;font-size:clamp(26px,5vw,40px);letter-spacing:-.04em}
+    h2{margin:0 0 14px;font-size:22px}
+    h3{margin:22px 0 10px;font-size:18px}
+    .muted{color:var(--muted)}
+    .card{padding:22px;margin-top:18px}
+    .intent{
+      background:var(--accent-soft);
+      border-left:5px solid var(--accent);
+      border-radius:14px;
+      padding:16px 18px;
+    }
+    .problem{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      margin-top:14px;
+    }
+    .mathbox{
+      margin:14px 0;padding:16px;border:1px dashed #b9cbd5;border-radius:14px;
+      background:#fbfdfe;overflow-x:auto;text-align:center
+    }
+    .choices{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      margin:12px 0;
+      text-align:center;
+      font-weight:700;
+    }
+    .choice{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 6px;
+      background:#fff;
+    }
+    .answer{
+      margin-top:14px;padding:15px 16px;border-radius:14px;
+      background:var(--answer);border:1px solid #cfe5d8
+    }
+    .solution{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+    .step,.case{
+      margin:12px 0;padding:14px 16px;border-radius:14px;background:#fff;
+      border:1px solid var(--line)
+    }
+    .case{border-left:4px solid var(--accent);background:#f9fcfd}
+    .result{
+      margin-top:16px;padding:16px;border-radius:14px;
+      background:#f7fbfd;border:1px solid var(--line)
+    }
+    .qrbox{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+    #qr{padding:10px;background:white;border:1px solid var(--line);border-radius:14px}
+    #qr img,#qr canvas{display:block;max-width:150px!important;height:auto!important}
+    @media(max-width:700px){
+      .choices{grid-template-columns:repeat(2,1fr)}
+      .qrbox{grid-template-columns:1fr}
+      #qr{width:max-content;margin:0 auto}
+      .hero,.card{border-radius:16px;padding:18px}
+    }
+    .footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    .katex-display{margin:.65em 0}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="chips">
+      <span class="chip">\(\mathrm{36}\)쪽 \(\mathrm{QR}\)</span>
+      <span class="chip">\(\mathrm{37}\)쪽 \(\mathrm{QR}\)</span>
+      <span class="chip">한 번 더</span>
+      <span class="chip">난이도: 상</span>
+    </div>
+    <h1>다항식 확인 학습</h1>
+    <div class="muted">
+      \(\mathrm{36}\)쪽과 \(\mathrm{37}\)쪽의 수정 문제를 한 페이지에서 확인할 수 있도록 구성했습니다.
+    </div>
+  </header>
+
+  <section class="card">
+    <h2>\(\mathrm{36}\)쪽 \(\mathrm{QR}\) | \(\mathrm{11}\)번 한 번 더</h2>
+
+    <div class="intent">
+      <strong>출제 의도</strong><br>
+      다항식의 함숫값을 두 인수의 함숫값의 곱으로 해석하고, 정수 조건에 따라 가능한 인수쌍을
+      빠짐없이 분류할 수 있는지를 평가한다. 또한 각 경우에 인수의 곱을 이용하여 다항식의 계수를
+      결정하는지 평가한다.
+    </div>
+
+    <div class="problem">
+      <p>
+        다항식
+        \[
+        P(x)=x^4+ax^3+bx^2+ax+1
+        \]
+        이
+        \[
+        P(x)=(x^2+px+1)(x^2+qx+1)
+        \]
+        로 인수분해된다. \(p,q\)가 음이 아닌 정수이고 \(P(1)=16\)일 때,
+        상수 \(a,b\)에 대하여 모든 \(a+b\)의 값의 합은?
+      </p>
+
+      <div class="choices">
+        <div class="choice">① \(14\)</div>
+        <div class="choice">② \(16\)</div>
+        <div class="choice">③ \(18\)</div>
+        <div class="choice">④ \(20\)</div>
+        <div class="choice">⑤ \(22\)</div>
+      </div>
+
+      <div class="answer">
+        <strong>정답</strong> \(\mathrm{③}\)
+      </div>
+
+      <div class="solution">
+        <h3>풀이</h3>
+
+        <div class="step">
+          \[
+          P(1)=(p+2)(q+2)=16
+          \]
+          이고 \(p,q\)가 음이 아닌 정수이므로
+          \[
+          p+2=2,\ q+2=8
+          \]
+          또는
+          \[
+          p+2=4,\ q+2=4
+          \]
+          이다.
+          따라서
+          \[
+          (p,q)=(0,6)\quad\text{또는}\quad(2,2)
+          \]
+          이다.
+        </div>
+
+        <div class="case">
+          <strong>\((\mathrm{i})\;p=0,\ q=6\)일 때</strong>
+          \[
+          P(x)=(x^2+1)(x^2+6x+1)
+          \]
+          \[
+          =x^4+6x^3+2x^2+6x+1
+          \]
+          이므로
+          \[
+          a=6,\qquad b=2
+          \]
+          따라서
+          \[
+          a+b=8
+          \]
+          이다.
+        </div>
+
+        <div class="case">
+          <strong>\((\mathrm{ii})\;p=2,\ q=2\)일 때</strong>
+          \[
+          P(x)=(x^2+2x+1)^2
+          \]
+          \[
+          =x^4+4x^3+6x^2+4x+1
+          \]
+          이므로
+          \[
+          a=4,\qquad b=6
+          \]
+          따라서
+          \[
+          a+b=10
+          \]
+          이다.
+        </div>
+
+        <div class="result">
+          따라서 모든 \(a+b\)의 값의 합은
+          \[
+          8+10=\boxed{18}
+          \]
+          이다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>\(\mathrm{37}\)쪽 \(\mathrm{QR}\) | \(\mathrm{16}\)번 한 번 더</h2>
+
+    <div class="intent">
+      <strong>출제 의도</strong><br>
+      함숫값 조건을 다항식의 근과 인수에 관한 조건으로 바꾸어 해석하고,
+      다항식의 차수와 최고차항의 계수를 이용하여 식을 구성할 수 있는지를 평가한다.
+    </div>
+
+    <div class="problem">
+      <p>
+        최고차항의 계수가 \(\mathrm{1}\)인 사차다항식 \(P(x)\)가
+        \[
+        P(1)=2,\qquad P(2)=5,\qquad P(3)=10
+        \]
+        을 만족시키고
+        \[
+        \{P(0)-1\}^{2}=36
+        \]
+        이다. 방정식
+        \[
+        P(x)=x^{2}+1
+        \]
+        의 모든 해를 구하시오.
+      </p>
+
+      <div class="answer">
+        <strong>정답</strong>
+        <div class="mathbox">
+          \[
+          x=-1,\quad 1,\quad 2,\quad 3
+          \]
+        </div>
+      </div>
+
+      <div class="solution">
+        <h3>풀이</h3>
+
+        <div class="step">
+          주어진 함숫값에서
+          \[
+          P(1)=1^{2}+1,\qquad
+          P(2)=2^{2}+1,\qquad
+          P(3)=3^{2}+1
+          \]
+          이므로 \(P(x)-(x^{2}+1)\)은
+          \[
+          x-1,\qquad x-2,\qquad x-3
+          \]
+          을 인수로 갖는다.
+        </div>
+
+        <div class="step">
+          \(P(x)\)는 최고차항의 계수가 \(\mathrm{1}\)인 사차다항식이므로 어떤 상수 \(a\)에 대하여
+          \[
+          P(x)-(x^{2}+1)
+          =(x-1)(x-2)(x-3)(x-a)
+          \]
+          로 나타낼 수 있다.
+        </div>
+
+        <div class="step">
+          \(x=0\)을 대입하면
+          \[
+          P(0)-1=6a
+          \]
+          이고,
+          \[
+          \{P(0)-1\}^{2}=36
+          \]
+          이므로
+          \[
+          36a^{2}=36,\qquad a^{2}=1
+          \]
+          따라서
+          \[
+          a=1\quad\text{또는}\quad a=-1
+          \]
+          이다.
+        </div>
+
+        <div class="case">
+          <strong>\((\mathrm{i})\;a=1\)</strong>
+          \[
+          P(x)-(x^{2}+1)
+          =(x-1)^2(x-2)(x-3)
+          \]
+          이므로 근은
+          \[
+          x=1,\quad 2,\quad 3
+          \]
+          이다.
+        </div>
+
+        <div class="case">
+          <strong>\((\mathrm{ii})\;a=-1\)</strong>
+          \[
+          P(x)-(x^{2}+1)
+          =(x+1)(x-1)(x-2)(x-3)
+          \]
+          이므로 근은
+          \[
+          x=-1,\quad 1,\quad 2,\quad 3
+          \]
+          이다.
+        </div>
+
+        <div class="result">
+          따라서 주어진 방정식의 모든 해는
+          \[
+          \boxed{x=-1,\;1,\;2,\;3}
+          \]
+          이다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="qrbox">
+      <div>
+        <h2>휴대기기 접속용 \(\mathrm{QR}\)</h2>
+        <p class="muted">
+          파일 이름을 <strong>\(\mathrm{index.html}\)</strong>로 바꾸어
+          \(\mathrm{Netlify\ Drop}\)에 게시한 뒤 페이지를 열면,
+          현재 게시 주소의 \(\mathrm{QR}\) 코드가 자동으로 생성됩니다.
+        </p>
+      </div>
+      <div id="qr"></div>
+    </div>
+  </section>
+
+  <div class="footer">36·37쪽 다항식 확인 학습 · 모바일 화면 대응</div>
+</div>
+
+<script>
+window.addEventListener("load", function(){
+  if(window.renderMathInElement){
+    renderMathInElement(document.body,{
+      delimiters:[
+        {left:"$$",right:"$$",display:true},
+        {left:"\\[",right:"\\]",display:true},
+        {left:"\\(",right:"\\)",display:false}
+      ],
+      throwOnError:false
+    });
+  }
+
+  const qr=document.getElementById("qr");
+  try{
+    new QRCode(qr,{
+      text:window.location.href,
+      width:150,
+      height:150,
+      correctLevel:QRCode.CorrectLevel.M
+    });
+  }catch(e){
+    qr.textContent="Netlify에 게시한 뒤 새로 고침하면 QR이 표시됩니다.";
+  }
+});
+</script>
+</body>
+</html>
